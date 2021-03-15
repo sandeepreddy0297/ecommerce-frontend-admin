@@ -27,13 +27,20 @@ class Login extends Component {
 
 
     }
+    
 
     render() {
+    //     console.log(' I am in login props',this.props);
+    // if(this.props.isUserLoggedIn){
+    //   console.log(' I am in props', this.props.isUserLoggedIn);
+    //   props.history.push('/adminhome');
+    // }
+        
         return (
             <React.Fragment>
                 <form>
                     EmailId: <input type="text" onChange={this.captureData} name="emailId"></input><br></br><br></br>
-                    Password: <input type="text" onChange={this.captureData} name="password"></input><br></br><br></br>
+                    Password: <input type="password" onChange={this.captureData} name="password"></input><br></br><br></br>
 
 
                     <button onClick={this.loginUser}>Login</button>
@@ -43,15 +50,13 @@ class Login extends Component {
         );
     }
 }
-function mapStateToProps(applicationState) {
-    console.log('applicationState', applicationState);
 
-    return { isLoggedIn: applicationState.isUserLoggedIn };
 
+function mapStatetoProps(appState){
+    console.log('appState',appState);
+    return {isUserLoggedIn:appState.isUserLoggedIn}
+  }
+  function mapDispatchToProps(dispatch){
+    return bindActionCreators({logNewUser:logNewUser},dispatch)
 }
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ logNewUser: logNewUser }, dispatch)
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+   export default connect(mapStatetoProps,mapDispatchToProps) (Login);

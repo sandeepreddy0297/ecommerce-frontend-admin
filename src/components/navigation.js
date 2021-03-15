@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {NavLink ,Route} from "react-router-dom";
 import Login from "../containers/login"
+import AdminHome from '../containers/adminhome';
+import AddProduct from "../containers/addproduct"
 
 class Navigation extends Component {
     
@@ -13,6 +15,8 @@ class Navigation extends Component {
 
                
                <Route path="/login" component={Login}></Route>
+               <Route path="/" exact component={AdminHome}></Route>
+               <Route path="/addproduct" component={AddProduct} ></Route>
               
             </React.Fragment>
          );
