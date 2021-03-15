@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
+import AdminReducer from '../reducers/admin';
 
-const rootReducer = combineReducers({
-  state: (state = {}) => state
-});
+const rootReducer = combineReducers(
+  {
+    isUserLoggedIn:AdminReducer
+  }
+  
+);
 
 export default rootReducer;
